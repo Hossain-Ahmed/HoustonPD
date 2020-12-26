@@ -78,7 +78,7 @@ namespace HoustonPD.Controllers
             var isExist = _db.Users.Any(x => x.Name.Equals(user.Name)
             && x.Password.Equals(user.Password));
             //var isExist = _userRepository.IsUserValid(user);
-            // var userArray = db.Users.ToArray();
+             var userArray = db.Users.ToArray();
 
 
             if (isExist)
