@@ -130,13 +130,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012241134261_initial migration.cs" />
-    <Compile Include="Migrations\202012241134261_initial migration.designer.cs">
-      <DependentUpon>202012241134261_initial migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012261207499_validation added.cs" />
-    <Compile Include="Migrations\202012261207499_validation added.Designer.cs">
-      <DependentUpon>202012261207499_validation added.cs</DependentUpon>
+    <Compile Include="Migrations\202012271007579_Initial.cs" />
+    <Compile Include="Migrations\202012271007579_Initial.Designer.cs">
+      <DependentUpon>202012271007579_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ProjectDbContext.cs" />
@@ -262,11 +258,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012241134261_initial migration.resx">
-      <DependentUpon>202012241134261_initial migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012261207499_validation added.resx">
-      <DependentUpon>202012261207499_validation added.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012271007579_Initial.resx">
+      <DependentUpon>202012271007579_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

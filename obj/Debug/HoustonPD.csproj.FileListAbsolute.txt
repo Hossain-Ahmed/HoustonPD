@@ -149,10 +149,9 @@ F:\OfficeHelp\HoustonPD\bin\System.Web.Helpers.xml
 F:\OfficeHelp\HoustonPD\bin\System.Web.Mvc.xml
 F:\OfficeHelp\HoustonPD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 F:\OfficeHelp\HoustonPD\obj\Debug\HoustonPD.csprojAssemblyReference.cache
-F:\OfficeHelp\HoustonPD\obj\Debug\HoustonPD.Migrations.initialmigration.resources
-F:\OfficeHelp\HoustonPD\obj\Debug\HoustonPD.Migrations.validationadded.resources
-F:\OfficeHelp\HoustonPD\obj\Debug\HoustonPD.csproj.GenerateResource.cache
 F:\OfficeHelp\HoustonPD\obj\Debug\HoustonPD.csproj.CoreCompileInputs.cache
 F:\OfficeHelp\HoustonPD\obj\Debug\HoustonPD.csproj.CopyComplete
 F:\OfficeHelp\HoustonPD\obj\Debug\USAPolice.dll
 F:\OfficeHelp\HoustonPD\obj\Debug\USAPolice.pdb
+F:\OfficeHelp\HoustonPD\obj\Debug\USAPolice.Migrations.Initial.resources
+F:\OfficeHelp\HoustonPD\obj\Debug\HoustonPD.csproj.GenerateResource.cache

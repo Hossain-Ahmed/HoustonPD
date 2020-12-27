@@ -1,9 +1,9 @@
-namespace HoustonPD.Migrations
+namespace USAPolice.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class validationadded : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -11,11 +11,11 @@ namespace HoustonPD.Migrations
                 "dbo.Users",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false),
-                        Email = c.String(nullable: false),
-                        Password = c.String(nullable: false),
-                        RepeatPassword = c.String(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        UserName = c.String(),
+                        Email = c.String(),
+                        Password = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             

@@ -22,7 +22,7 @@ namespace HoustonPD.Controllers
         }
         public ActionResult Login()
         {
-          
+
             return View();
         }
 
@@ -46,40 +46,53 @@ namespace HoustonPD.Controllers
 
         //}
 
-        [HttpGet]
-       // [ValidateAntiForgeryToken]
+        [HttpPost]
+        // [ValidateAntiForgeryToken]
         public ActionResult Register(UserViewModel userViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(userViewModel);
+            }
 
             var user = new User();
-            {
-                user.Name = userViewModel.Name;
-                user.Email = userViewModel.Email;
-                user.Password = userViewModel.Password;
-                user.RepeatPassword = userViewModel.RepeatPassword;
 
+            if (!string.IsNullOrEmpty(userViewModel.Name))
+            {
+                {
+
+                    user.Name = userViewModel.Name;
+                    user.UserName = userViewModel.UserName;
+                    user.Email = userViewModel.Email;
+                   
+                   if(userViewModel.Password == userViewModel.RepeatPassword)
+                    {
+                      user.Password = userViewModel.Password;
+                    }
+                    else
+                    {
+                        return View(user);
+                    }
+                }
             }
 
             _db.Users.Add(user);
             _db.SaveChanges();
 
-
-            return View();
-            
+            return RedirectToAction("Login", "User");
         }
         [HttpGet]
         public ActionResult Login(UserViewModel userViewModel)
         {
             var user = new User
             {
-                Name = userViewModel.Name,
+                UserName = userViewModel.UserName,
+                Email = userViewModel.UserName,
                 Password = userViewModel.Password
             };
-            var isExist = _db.Users.Any(x => x.Name.Equals(user.Name)
+            var isExist = _db.Users.Any(x =>( x.UserName.Equals(user.UserName) || x.Email.Equals(user.Email))
             && x.Password.Equals(user.Password));
             //var isExist = _userRepository.IsUserValid(user);
-             var userArray = _db.Users.ToArray();
-
 
             if (isExist)
             {
