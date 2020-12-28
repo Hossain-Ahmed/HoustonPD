@@ -43,6 +43,11 @@ namespace HoustonPD.Controllers
             }
             if (!string.IsNullOrEmpty(userViewModel.Name))
             {
+                var isUserExist = _db.Users.Any(x => x.UserName.Equals(userViewModel.UserName));
+                    if(isUserExist)
+                {
+                    return View(user);
+                }
                 
                     user.Name = userViewModel.Name;
                     user.UserName = userViewModel.UserName;
