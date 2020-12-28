@@ -31,36 +31,19 @@ namespace HoustonPD.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Register([Bind(Include = "Id,Name,Email,Password,RepeatPassword")] User user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Users.Add(user);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Login");
-        //    }
-
-        //    return View(User);
-
-        //}
-
         [HttpPost]
         // [ValidateAntiForgeryToken]
         public ActionResult Register(UserViewModel userViewModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(userViewModel);
-            }
-
             var user = new User();
 
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
             if (!string.IsNullOrEmpty(userViewModel.Name))
             {
-                {
-
+                
                     user.Name = userViewModel.Name;
                     user.UserName = userViewModel.UserName;
                     user.Email = userViewModel.Email;
@@ -71,39 +54,42 @@ namespace HoustonPD.Controllers
                     }
                     else
                     {
+                        ViewBag.Message = "password and RepeatPassword must be same!!! ";
                         return View(user);
                     }
-                }
+            
             }
 
             _db.Users.Add(user);
             _db.SaveChanges();
+            ViewBag.Message = "Successfully Registered!!!!!!!!!! ";
+            return View(user);
 
-            return RedirectToAction("Login", "User");
         }
         [HttpGet]
         public ActionResult Login(UserViewModel userViewModel)
         {
-            var user = new User
-            {
-                UserName = userViewModel.UserName,
-                Email = userViewModel.UserName,
-                Password = userViewModel.Password
-            };
-            var isExist = _db.Users.Any(x =>( x.UserName.Equals(user.UserName) || x.Email.Equals(user.Email))
-            && x.Password.Equals(user.Password));
-            //var isExist = _userRepository.IsUserValid(user);
+            
+                var user = new User
+                {
+                    UserName = userViewModel.UserName,
+                    Email = userViewModel.UserName,
+                    Password = userViewModel.Password
+                };
+                var isExist = _db.Users.Any(x => (x.UserName.Equals(user.UserName) || x.Email.Equals(user.Email))
+                && x.Password.Equals(user.Password));
+                //var isExist = _userRepository.IsUserValid(user);
 
-            if (isExist)
-            {
-                return RedirectToAction("index", "User");
-            }
-            else
-            {
-                ViewBag.ValidationMessage = "Username or Password is not correct!";
+                if (isExist)
+                {
+                    return RedirectToAction("index", "User");
+                }
+                else
+                {
+                    ViewBag.ValidationMessage = "Username or Password is not correct!";
 
-                return View();
-            }
+                    return View();
+                }
         }
 
         protected override void Dispose(bool disposing)
