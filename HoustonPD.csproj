@@ -130,6 +130,7 @@
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\vendor\jquery\jquery-ui.min.js" />
     <Content Include="Content\vendor\jquery\jquery.min.js" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
