@@ -45,9 +45,10 @@ namespace HoustonPD.Controllers
             {
                 var isUserExist = _db.Users.Any(x => x.UserName.Equals(userViewModel.UserName));
                     if(isUserExist)
-                {
+                   {
+                    ViewBag.Message = "This User already exist!!!";
                     return View(user);
-                }
+                   }
                 
                     user.Name = userViewModel.Name;
                     user.UserName = userViewModel.UserName;

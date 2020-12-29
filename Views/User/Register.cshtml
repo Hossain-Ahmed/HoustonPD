@@ -15,9 +15,10 @@
 <link href="../../Content/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
 <link href="../../Content/css/style.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-
+<link href="~/Content/toastr.min.css" rel="stylesheet" />
 
 <body>
+
     <div class="main">
         <section class="signup">
             <div class="container">
@@ -50,7 +51,8 @@
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="Register" id="signup" class="form-submit" value="Register" />
+                                <input type="submit" name="Register" onclick="Notification()" id="signup" class="form-submit" value="Register" />
+
                             </div>
 
 
@@ -69,33 +71,28 @@
     <script src="../../Content/vendor/jquery/jquery-ui.min.js"></script>
     <script src="../../Content/js/main.js"></script>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+   
+    @if (ViewBag.Message != null)
+    {
+<script type="text/javascript">
+    if ("@ViewBag.Message" == "This User already exist!!!") {
+        window.onload = function () {
+            toastr.error("@ViewBag.Message");
+        };
+    }
+    if ("@ViewBag.Message" == "Successfully Registered!!!!!!!!!! ") {
+        window.onload = function () {
+            toastr.success("@ViewBag.Message");
+        };
+    }
+    else {
+        window.onload = function () {
+            toastr.error("@ViewBag.Message");
+        };
+    }
+</script>
 
-
-
-    <script>
-        $('#button').on('click', function () {
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-            toastr["success"]("Have fun storming the castle!", "ok")
-
-        });
-
-    </script>
-
+    }
 
 </body>
