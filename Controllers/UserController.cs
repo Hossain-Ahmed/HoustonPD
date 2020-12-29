@@ -75,7 +75,8 @@ namespace HoustonPD.Controllers
         [HttpGet]
         public ActionResult Login(UserViewModel userViewModel)
         {
-            
+                
+            if (!string.IsNullOrEmpty(userViewModel.Password)) { 
                 var user = new User
                 {
                     UserName = userViewModel.UserName,
@@ -90,12 +91,15 @@ namespace HoustonPD.Controllers
                 {
                     return RedirectToAction("index", "User");
                 }
-                else
-                {
-                    ViewBag.ValidationMessage = "Username or Password is not correct!";
-
+                else { 
+                
+                    ViewBag.Message = "Username or Password is not correct!";
+                  
                     return View();
                 }
+
+            }
+            return View();
         }
 
         protected override void Dispose(bool disposing)

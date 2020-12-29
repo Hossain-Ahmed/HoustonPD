@@ -7,7 +7,7 @@
 <link href="../../Content/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" />
 <link href="../../Content/css/style.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
+<link href="~/Content/toastr.min.css" rel="stylesheet" />
 
 <body>
     <form id="form1" runat="server">
@@ -24,7 +24,7 @@
                             <form method="POST" class="register-form" id="login-form" action="User/Login">
                                 <div class="form-group">
                                     <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="UserName" id="your_name" placeholder="Your User Name" />
+                                    <input type="text" name="UserName" id="your_name" placeholder="Your Username or email" />
                                 </div>
                                 <div class="form-group">
                                     <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
@@ -32,10 +32,11 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                    <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                                    <label for="remember-me" class="label-agree-term"><span></span>Remember me &emsp;&nbsp;&emsp;<a href="#">Forgot your Password??</a></label>
                                 </div>
                                 <div class="form-group form-button">
                                     <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+
                                 </div>
                             </form>
                             <div class="social-login">
@@ -52,15 +53,20 @@
             </section>
         </div>
     </form>
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
     <script src="../../Content/vendor/jquery/jquery-ui.min.js"></script>
     <script src="../../Content/js/main.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
 
-    <script>
-      window.onload = function () {
-                
-            };
-    </script>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+    window.onload = function () {
+
+        toastr.error("@ViewBag.Message");
+        };
+        </script>
+    }
 </body>
 
 

@@ -54,10 +54,7 @@
                                 <input type="submit" name="Register" onclick="Notification()" id="signup" class="form-submit" value="Register" />
 
                             </div>
-
-
                         </form>
-                        <button type="button" id="button"> ok</button>
                     </div>
                     <div class="signup-image">
                         <figure><img src="../../Content/images/signup-image.jpg" alt="sing up image" /></figure>
@@ -73,9 +70,8 @@
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="~/Scripts/toastr.min.js"></script>
    
-    @if (ViewBag.Message != null)
-    {
-<script type="text/javascript">
+    
+    <script type="text/javascript">
     if ("@ViewBag.Message" == "This User already exist!!!") {
         window.onload = function () {
             toastr.error("@ViewBag.Message");
@@ -86,13 +82,14 @@
             toastr.success("@ViewBag.Message");
         };
     }
-    else {
+        if ("@ViewBag.Message" == "password and RepeatPassword must be same!!! ") {
         window.onload = function () {
             toastr.error("@ViewBag.Message");
         };
-    }
-</script>
+        }
+        
+    </script>
 
-    }
+    
 
 </body>
